@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>哆啦A梦</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.figure{
+			position: relative;
+			margin: 50px 100px;
+			text-align: center;
+		}
+		.head{
+			position: relative;
+			width: 216px;
+			height: 197px;
+			border-radius: 108px 108px 108px 108px / 105px 105px 92px 92px;
+			border: 2px solid #000;
+			background: #089be9;
+			z-index: 10;
+		}
+		.face{
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			margin-left: -97px;
+			background: #fff;
+			width: 194px;
+			height: 160px;
+			border: 2px solid #000;
+			border-radius: 100px 100px 100px 100px / 75px 75px 85px 85px ;
+		}
+		.eyes{
+			position: absolute;
+			left: 50%;
+			top: 12px;
+			transform:translateX(-50%);
+		}
+		.outer-eye{
+			float: left;
+			width: 40px;
+			height: 55px;
+			background: #fff;
+			border: 2px solid #000;
+			border-radius: 50% 50% 45% 45%;
+		}
+
+		.outer-eye:before,.outer-eye:after{
+			content: '';
+			position: absolute;
+		}
+		.outer-eye:before{
+			left: 22px;
+			top: 20px;
+			width: 16px;
+			height: 22px;
+			background: #000;
+			border-radius: 50%;
+		}
+		.outer-eye:first-child:before{
+			left: 19px;
+		}
+		.outer-eye:last-child:before{
+			left: 45px;
+		}
+		.outer-eye:after{
+			top: 28px;
+			width: 6px;
+			height: 9px;
+			background: #fff;
+			border-radius: 50%;
+		}
+		.outer-eye:first-child:after{
+			left: 26px;
+		}
+		.outer-eye:last-child:after{
+			left: 48px;
+		}
+		.nose{
+			position: absolute;
+			top: 53px;
+			left:90px;
+			background: #ec000e;
+			width: 26px;
+			height: 26px;
+			border: 2px solid #563023;
+			border-radius: 50%;
+		}
+		.nose:after{
+			content: '';
+			position: absolute;
+			left: 4px;
+			top:3px;
+			width: 10px;
+			height: 10px;
+			background: #fff;
+			border-radius: 50%;
+		}
+		.nose:before{
+			content: '';
+		    position: absolute;
+		    top: 22px;
+		    left: 9px;
+		    width: 2px;
+		    height: 82px;
+		    background: #000;
+		}
+		.beard span{
+			position: absolute;
+			height: 2px;
+			width: 56px;
+			background: #000;
+		}
+		.beard span:nth-child(1){
+			left: 20px;
+			top: 70px;
+			transform: rotate(23deg);
+		}
+		.beard span:nth-child(2){
+			left: 20px;
+			top: 95px;
+			transform: rotate(3deg);
+		}
+		.beard span:nth-child(3){
+			left: 23px;
+			top: 122px;
+			transform: rotate(-23deg);
+		}
+		.beard span:nth-child(4){
+			left: 126px;
+			top: 70px;
+			transform: rotate(-23deg);
+		}
+		.beard span:nth-child(5){
+			left: 126px;
+			top: 95px;
+			transform: rotate(-3deg);
+		}
+		.beard span:nth-child(6){
+			left: 126px;
+			top: 122px;
+			transform: rotate(23deg);
+		}
+		.mouth{
+			position: absolute;
+			bottom: 33px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 135px;
+			height: 140px;
+			border-bottom: 2px solid #000;
+			border-radius: 50%;
+		}
+		.bread > div:first-child{
+			position: absolute;
+			bottom: -8px;
+			left: 50%;
+			margin-left: -44px;
+			width: 88px;
+			height: 54px;
+			background: #a27163;
+			border: 2px solid #000;
+			border-bottom: 2px solid transparent;
+			border-radius: 50%;
+			z-index: 5;
+		}
+		.bread > div:nth-child(2){
+			position: absolute;
+			bottom: -18px;
+			left: 50%;
+			margin-left: -44px;
+			width: 88px;
+			height: 54px;
+			background: #fde6c7;
+			border-radius: 50%;
+			border: 2px solid #000;
+			border-top: 2px solid transparent;
+			z-index: 4;
+		}
+		.bread > div:nth-child(3){
+			position: absolute;
+			bottom: -26px;
+			left: 50%;
+			margin-left: -44px;
+			width: 88px;
+			height: 54px;
+			background: #fde6c7;
+			border-radius: 50%;
+			border: 2px solid #000;
+			border-top: 2px solid transparent;
+			z-index: 3;
+		}
+		.body{
+			position: absolute;
+			left: 23px;
+			top: 170px;
+			background: #00a1e7;
+			width: 170px;
+			height: 140px;
+			border: 2px solid #000;
+			border-radius: 70px 70px  20px 20px /100px 100px 10px 10px;
+		}
+		.arms >div{
+			position: absolute;
+			top: 50px;
+			background: #00a0e8;
+			width: 60px;
+			height: 32px;
+			border: 2px solid #000;
+			border-radius: 20px/16px; 
+			z-index:12;
+		}
+		.arms > div:before{
+			content: '';
+			position: absolute;
+			width: 36px;
+			height: 36px;
+			border-radius: 50%;
+			background: #fff;
+			border: 2px solid #000;
+		}
+		.arms .left-arm{
+			transform-origin: 0 0;
+			transform: rotate(-50deg);
+			left:-10px;
+		}
+		.arms .left-arm:before{
+			top: -4px;
+    		left: 38px;
+		}
+		.arms .right-arm{
+			transform-origin: 100% 100%;
+			transform: rotate(50deg);
+			left: 94px;
+			top: 38px;
+		}
+		.arms .right-arm:before{
+			left: -22px;
+    		top: -6px;
+		}
+		.clothes{
+			position: absolute;
+			left: 50%;
+			top: 20px;
+			margin-left: -63px;
+			width: 126px;
+			height: 104px;
+			background: #fff;
+			border-radius: 50%;
+			border: 2px solid #000;
+		}
+		.pocket{
+			position: absolute;
+			left: 50%;
+			margin-left: -49px;
+			top: 39px;
+			width: 98px;
+			height: 49px;
+			border: 2px solid #000;
+			border-top: none;
+			border-radius: 0 0 50% 50% / 0 0 90% 90%;
+		}
+		.pocket:before{
+			content: '';
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 2px;
+			background: #000;
+		}
+		.feet > div{
+			position: absolute;
+			top: 234px;
+			width: 68px;
+			height: 90px;
+			background: #fff;
+			border: 2px solid #000;
+			border-radius: 50%;
+		}
+		.feet .right-foot{
+			left: 147px;
+		}
+	</style>
+</head>
+<body>
+	<div class="figure">
+		<div class="head">
+			<div class="face"></div>
+			<div class="eyes">
+				<div class="outer-eye"></div>
+				<div class="outer-eye"></div>
+			</div>
+			<div class="mouth"></div>
+			<div class="bread">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div class="nose"></div>
+			<div class="beard">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		<div class="body">
+			<div class="arms">
+				<div class="left-arm"></div>
+				<div class="right-arm"></div>
+			</div>
+			<div class="clothes">
+				<div class="pocket"></div>
+			</div>
+		</div>
+		<div class="feet">
+			<div class="left-foot"></div>
+			<div class="right-foot"></div>
+		</div>
+	</div>
+</body>
+</html>
